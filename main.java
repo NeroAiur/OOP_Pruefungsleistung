@@ -9,7 +9,7 @@ addButton.addActionListener(new ActionListener() {
         if (input.isEmpty()) {
             showMessageDialog(null, "Eingabefeld ist leer, bitte etwas hinein schreiben");
         } else {
-            // add input text to mainframe
+            toDoList.addElement(input);
         }
     }
 })
@@ -40,7 +40,7 @@ public void keyPressed(KeyEvent e) {
         if (input.isEmpty()) {
             showMessageDialog(null, "Eingabefeld ist leer, bitte etwas hinein schreiben");
         } else {
-            // add input text to mainframe
+            toDoList.addElement(input);
         }
     }
 
