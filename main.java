@@ -1,3 +1,4 @@
+import javax.swing.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 JButton addButton = new JButton("Hinzufügen");
@@ -18,7 +19,8 @@ JButton markButton = new JButton("Erledigt");
 markButton.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        // do shit
+        // ausgewähltes Feld bekommt ein " *" hinter den vorhandenen text
+        // objekt dann flaggen als "done"
     }
 })
 
@@ -27,7 +29,7 @@ JButton removeButton = new JButton("Liste löschen");
 removeButton.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        // do shit
+        // alle Felder werden entfernt
     }
 })
 
@@ -44,5 +46,18 @@ public void keyPressed(KeyEvent e) {
 
     if (e.getKeyCode() == KeyEvent.VK_DELETE) {
         // do shit, same as "erledigt" buttons
+    }
+}
+
+public void windowClosing(WindowEvent e) {
+    // quasi zweite Swing-Application
+    // zwei buttons
+    // einer "ja save" -> response = true
+    // einer "nein no save" -> response = false
+
+    if (!response) {
+        // exit und gut
+    } else {
+        // save shit, dann exit
     }
 }
