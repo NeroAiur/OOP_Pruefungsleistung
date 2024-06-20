@@ -34,7 +34,12 @@ removeButton.addActionListener(new ActionListener() {
 
 public void keyPressed(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-        // do shit, same shit as "hinzufügen" button
+        input = toString(inputField.getText());
+        if (input.isEmpty()) {
+            showMessageDialog(null, "Eingabefeld ist leer, bitte etwas hinein schreiben");
+        } else {
+            // add input text to mainframe
+        }
     }
 
     if (e.getKeyCode() == KeyEvent.VK_DELETE) {
