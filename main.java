@@ -9,7 +9,10 @@ addButton.addActionListener(new ActionListener() {
         if (input.isEmpty()) {
             showMessageDialog(null, "Eingabefeld ist leer, bitte etwas hinein schreiben");
         } else {
-            toDoList.addElement(input);
+            DefaultListModel tempList = new DefaultListModel();
+            tempList.addElement(input);
+
+            toDoList.setModel(tempList);
         }
     }
 })
@@ -19,8 +22,13 @@ JButton markButton = new JButton("Erledigt");
 markButton.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        // ausgewähltes Feld bekommt ein " *" hinter den vorhandenen text
-        // objekt dann flaggen als "done"
+        int index = list.getSelectedIndex();
+
+        DefaultListModel tempList = new DefaultListModel();
+        JList toDoList = new JList(tempList);
+        content = getElementAt(index);
+
+        tempList.setElementAt("* " + content);
     }
 })
 
@@ -29,7 +37,10 @@ JButton removeButton = new JButton("Liste löschen");
 removeButton.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        // alle Felder werden entfernt
+        DefaultListModel tempList = new DefaultListModel();
+        JList toDoList = new JList(tempList);
+
+        tempList.clear();
     }
 })
 
